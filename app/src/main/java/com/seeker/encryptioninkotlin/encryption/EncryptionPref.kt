@@ -1,4 +1,4 @@
-package com.ft.ecom.encryption
+package com.seeker.encryptioninkotlin.encryption
 
 import android.app.Activity
 import android.content.Context

@@ -1,9 +1,10 @@
-package com.ft.ecom.encryption
+package com.seeker.encryptioninkotlin.encryption
 
 import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.widget.Toast
+import com.seeker.encryption.encryption.toast
 import com.seeker.encryptioninkotlin.encryption.utils.AesUtils
 import com.seeker.encryptioninkotlin.encryption.utils.RsaUtils
 import java.security.KeyStore

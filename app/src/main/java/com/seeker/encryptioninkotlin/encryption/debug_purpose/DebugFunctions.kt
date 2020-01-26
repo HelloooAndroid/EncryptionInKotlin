@@ -1,4 +1,4 @@
-package com.ft.ecom.encryption
+package com.seeker.encryption.encryption
 
 import android.content.Context
 import android.util.Log
@@ -19,6 +19,6 @@ internal fun Logd(userTag: String, log_string: String?) {
 
 fun Context.toast(toast_str: String?, duration: Int = Toast.LENGTH_SHORT) {
     if (BuildConfig.DEBUG) {
-        Toast.makeText(this, toast_str, duration)
+        Toast.makeText(this, toast_str, duration).show()
     }
 }

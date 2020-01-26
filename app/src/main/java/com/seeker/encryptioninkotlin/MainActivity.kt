@@ -2,10 +2,8 @@ package com.seeker.encryptioninkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Base64
-import com.ft.ecom.encryption.Encryption
-import com.ft.ecom.encryption.Logd
+import android.widget.Toast
+import com.seeker.encryptioninkotlin.encryption.Encryption
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,15 +19,22 @@ class MainActivity : AppCompatActivity() {
         var encryption = Encryption(this)
 
         encrypt.setOnClickListener {
-            plainString = message.text.toString()
-            encryptedString = encryption.encrypt(plainString)!!
-            result.text = encryptedString
+            if(! message.text.toString().equals("")){
+                plainString = message.text.toString()
+                encryptedString = encryption.encrypt(plainString)!!
+                result.text = encryptedString
+            }else{
+                Toast.makeText(this,"Type message",Toast.LENGTH_SHORT).show()
+            }
         }
 
         decrypt.setOnClickListener {
-            val decryptedString: String = encryption.decrypt(encryptedString!!).toString()
-            result.text = decryptedString
-
+            if(encryptedString!=null){
+                val decryptedString: String = encryption.decrypt(encryptedString!!).toString()
+                result.text = decryptedString
+            }else{
+                Toast.makeText(this,"Encrypt first",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
