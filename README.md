@@ -46,7 +46,7 @@ RSA cannot encrypt data larger than it’s key size (padding affects this as wel
 ## <b>API Level >=23:</b> 
 Android Keystore available with AES support. Generate a random AES key using into Android Keystore. You can use it directly.
 ### Generating the key
-```
+```kotlin
 fun generateKey(): SecretKey? {
         keyStore = KeyStore.getInstance("AndroidKeyStore")
         keyStore?.load(null)
@@ -70,7 +70,7 @@ Where, ```AES_MODE = "AES/GCM/NoPadding"```
 > Do not use "AES" or "AES/ECB/PKCS7Padding" Since, ECB is insecure as it does not output unique encryptions when given duplicate data. We have used GCM Since, GCM provides both privacy and integrity 
 
 ### Getting the key
-```
+```kotlin
 @Throws(Exception::class)
     fun getSecretKey(): Key? {
         return keyStore!!.getKey(KEY_ALIAS, null)
@@ -78,7 +78,7 @@ Where, ```AES_MODE = "AES/GCM/NoPadding"```
 ```
 
 ### Encrypting the data
-```
+```kotlin
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Throws(java.lang.Exception::class)
     fun encryptMsg(message: String?): String? {
@@ -96,7 +96,7 @@ Where, ```FIXED_IV``` is Initial Vector. it’s a cryptographic feature that inj
 > @RequiresApi (K) required and wont affect the module since we have check on method calling`
 
 ### Decrypting the data
-```
+```kotlin
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Throws(java.lang.Exception::class)
     fun decryptMsg(cipherText: String): String {
