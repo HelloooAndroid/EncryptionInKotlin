@@ -1,11 +1,11 @@
 # Encryption 
+encryption is the process of encoding information. This process converts the original representation of the information, known as plaintext, into an alternative form known as ciphertext. Only authorized parties can decipher a ciphertext back to plaintext and access the original information.
 
-You can store secrets in Preferences after encrypting them.
-
+You can store data in Databse or Preferences after encrypting them.
 But what about the keys used to encrypt the data? A general rule is you should not use any hardcoded keys because a hacker can easily decompile your code and obtain the key, thereby rendering the encryption useless. You need a key management framework, and that’s what the Android KeyStore API is designed for.
 
 KeyStore provides two functions:
-1) Randomly generates keys; and
+1) Randomly generates keys and
 2) Securely stores the keys
 
 With these, storing secrets becomes easy. All you have to do is:
