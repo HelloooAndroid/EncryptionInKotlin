@@ -33,7 +33,14 @@ Android Keystore available without AES support. Generate a random AES key using 
 ### Retrieving and decrypting the data
 - Retrieve the encrypted AES key from Preferences
 - Decrypt the above to obtain the AES key using the private RSA key
-- Decrypt the data using the AES key
+- Decrypt the data using the AES key  
+
+<br />
+
+<b>Why we haven't use only RSA for encryption?  
+RSA cannot encrypt data larger than it’s key size (padding affects this as well). If data size is unpredictable then use AES. Some possible solutions include separating the data into chunks and running the cipher encryption on each section, Though note that this will make the encryption very slower. We encrypt data using AES and key wrap the AES key using a RSA key backed by the keystore.</b>
+<br />
+<br />
 
 
 ## <b>API Level >=23:</b> 
